@@ -1,0 +1,15 @@
+
+<template name="mainExplorer">
+    <table class="table table-hover">
+        {{#each entities}}
+          {{> entity}}
+        {{/each}}
+    </table>
+
+</template>
+
+<template name="entity">
+    <tr>
+        <td><i class="icon-bar-chart"></i></td><td>{{name}}</td><td></td>
+    </tr>
+</template>
