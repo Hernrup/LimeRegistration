@@ -1,0 +1,119 @@
+/*Functions*/
+.border_radius (@radius: 5px) {
+    -webkit-border-radius: @radius;
+    -moz-border-radius: @radius;
+    border-radius: @radius;
+}
+.box_shadow (@x: 0px, @y: 3px, @blur: 5px, @alpha: 0.5) {
+    -webkit-box-shadow: @x @y @blur rgba(0, 0, 0, @alpha);
+    -moz-box-shadow: @x @y @blur rgba(0, 0, 0, @alpha);
+    box-shadow: @x @y @blur rgba(0, 0, 0, @alpha);
+}
+.transform (@rotate: 90deg, @scale: 1, @skew: 1deg, @translate: 10px) {
+    -webkit-transform: rotate(@rotate) scale(@scale) skew(@skew) translate(@translate);
+    -moz-transform: rotate(@rotate) scale(@scale) skew(@skew) translate(@translate);
+    -o-transform: rotate(@rotate) scale(@scale) skew(@skew) translate(@translate);
+    -ms-transform: rotate(@rotate) scale(@scale) skew(@skew) translate(@translate);
+    transform: rotate(@rotate) scale(@scale) skew(@skew) translate(@translate);
+}
+.gradient (@origin: left, @start: #ffffff, @stop: #000000) {
+    background-color: @start;
+    background-image: -webkit-linear-gradient(@origin, @start, @stop);
+    background-image: -moz-linear-gradient(@origin, @start, @stop);
+    background-image: -o-linear-gradient(@origin, @start, @stop);
+    background-image: -ms-linear-gradient(@origin, @start, @stop);
+    background-image: linear-gradient(@origin, @start, @stop);
+}
+.gradient_overlay (@origin: left, @alpha: 0.2) {
+    background-image: -webkit-linear-gradient(@origin, rgba(0,0,0,0.0), rgba(0,0,0,@alpha));
+    background-image: -moz-linear-gradient(@origin, rgba(0,0,0,0.0), rgba(0,0,0,@alpha));
+    background-image: -o-linear-gradient(@origin, rgba(0,0,0,0.0), rgba(0,0,0,@alpha));
+    background-image: -ms-linear-gradient(@origin, rgba(0,0,0,0.0), rgba(0,0,0,@alpha));
+    background-image: linear-gradient(@origin, rgba(0,0,0,0.0), rgba(0,0,0,@alpha));
+}
+
+@colorB: #663333;
+@colorL1: lighten(spin(@colorB, 5), 10%);
+@colorL2: lighten(spin(@colorB, 10), 20%);
+@colorD1: darken(spin(@colorB, -5), 10%);
+@ColorD2: darken(spin(@colorB, -10), 20%);
+
+/*BASE*****************************************/
+
+
+body
+{
+    padding-top: 00px;
+}
+
+.footer {
+  text-align: center;
+  padding: 30px 0;
+  margin-top: 0px;
+  border-top: 1px solid #e5e5e5;
+  background-color: #f5f5f5;
+}
+.footer p {
+  margin-bottom: 0;
+  color: #777;
+}
+.footer-links {
+  margin: 10px 0;
+}
+.footer-links li {
+  display: inline;
+  padding: 0 2px;
+}
+.footer-links li:first-child {
+  padding-left: 0;
+}
+h2 + table,
+h3 + table,
+h4 + table,
+h2 + .row {
+  margin-top: 5px;
+}
+
+div#main
+{
+    padding-top:20px;
+    padding-bottom:70px;
+}
+
+/*CSS***************************************/
+.navbar-inverse .brand
+{
+    font-weight: bold;
+    color: #FFF;
+}
+
+div.expose
+{
+    background-color: #b6ff00;
+    .gradient_overlay(left, 0.3);
+    height: 150px;
+}
+
+.container
+{
+    
+}
+
+div.controls {
+padding: 15px 0;
+text-align: right;
+background-color: #f5f5f5;
+border-top: 1px solid #fff;
+border-bottom: 1px solid #ddd;
+}
+
+/* Faded out hr */
+hr.soften {
+  height: 1px;
+  margin: 70px 0;
+  background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
+  background-image:    -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
+  background-image:     -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
+  background-image:      -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
+  border: 0;
+}
