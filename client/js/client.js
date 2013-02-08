@@ -5,6 +5,10 @@ Template.explorer.entities = function () {
     return Entities.find({}, { sort: { name: 1 } });
 };
 
+Template.entity.selected = function () {
+    return this._id == Session.get("selected_entity") ? 'success':'';
+};
+
 Meteor.startup(function () {
     Slidepanel.init();
 });
@@ -16,9 +20,10 @@ Template.sidepanel.header = function () {
     //return 'test';
 };
 
-Template.expose.header = function () {
+Template.expose.entity = function () {
     var ent = Entities.findOne(Session.get("selected_entity"));
-    return ent && ent.name || 'N/A';
+    //return ent && ent.name || 'N/A';
+    return ent;
 };
 Template.expose.description = function () {
     return 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas tincidunt laoreet turpis, sit amet tristique odio sodales at. Quisque lobortis, felis in convallis dictum, sapien odio pharetra lectus, eget lacinia ligula justo et lectus. Phasellus magna est';
