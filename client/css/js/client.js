@@ -1,7 +1,7 @@
 
 Meteor.subscribe("entities");
 
-Template.mainExplorer.entities = function () {
+Template.explorer.entities = function () {
     return Entities.find({}, { sort: { name: 1 } });
 };
 
@@ -10,9 +10,10 @@ Meteor.startup(function () {
 });
 
 Template.sidepanel.header = function () {
-    //var ent = Entities.findOne(Session.get("selected_entity"));
-    //return ent && ent.name;
-    return 'test';
+    //var ent = Session.get("selected_entity");
+    var ent = Entities.findOne(Session.get("selected_entity"));
+    return ent && ent.name;
+    //return 'test';
 };
 
 Template.expose.header = function () {
@@ -25,15 +26,30 @@ Template.expose.description = function () {
 
 Template.entity.events({
     'click': function () {
-        var savedEntity = Session.get("selected_entity")
+        var savedEntity = Session.get("selected_entity");
+
+        if (!savedEntity) {
+            Slidepanel.expand();
+        }
+
+
         if (!savedEntity || savedEntity != this._id) {
             Session.set("selected_entity", this._id);
-            Slidepanel.expand();
         } else {
             Session.set("selected_entity", null);
             Slidepanel.collapse();
         }
+       
     }
 });
 
+Template.page.events({
+    'click #wrapper': function (event) {
+        //check if in entity-list context
+        if ($(event.target).parents("table#entity-list").length == 0) {
+            Slidepanel.collapse();
+        }
+
+    }
+});
 

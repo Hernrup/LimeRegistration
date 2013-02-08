@@ -53,7 +53,7 @@ $(function () {
     Slidepanel.expand = function () {
 
         console.log("Slidepanel.expand");
-
+        console.log(this);
         var base = this;
 
         //set a default top value for left and right orientations
